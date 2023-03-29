@@ -1,0 +1,7 @@
+29-03-2023 23:29:41.4141: [info] Server Running on Port: http://localhost:5000 
+29-03-2023 23:29:45.4545: [info] Request recieved POST /v1/auth/signup "pussy@abc.com"  
+29-03-2023 23:29:45.4545: [info] Response send with 400 Bad Request;  58b sent 
+29-03-2023 23:33:35.3535: [info] Server Running on Port: http://localhost:5000 
+29-03-2023 23:33:37.3737: [info] Server Running on Port: http://localhost:5000 
+29-03-2023 23:33:41.4141: [info] Server Running on Port: http://localhost:5000 
+29-03-2023 23:33:46.4646: [info] Server Running on Port: http://localhost:5000 
