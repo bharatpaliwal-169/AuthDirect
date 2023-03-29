@@ -1,11 +1,10 @@
 import express from 'express';
 import {forgotPassword, login , signup} from '../../controllers/v1/auth.js'
-
+import logMid from '../../middlewares/logmiddleware.js'
 const router = express.Router();
 
-router.post('/login',login);
-router.post('/signup',signup);
-router.post('/forgotpassword',forgotPassword);
-
+router.post('/v1/auth/login',logMid,login);
+router.post('/v1/auth/signup',logMid,signup);
+router.post('/v1/auth/forgotpassword',logMid,forgotPassword);
 
 export default router;
