@@ -30,14 +30,14 @@ const logger = winston.createLogger({
     }),
 
     //prod
-    new DailyRotateFile({
-      filename: './logs/app-%DATE%.log',
-      datePattern: 'DD-MM-YYYY',
-      zippedArchive: true,
-      maxSize: '100m',
-      maxFiles: '7d',
-      format: format.combine(logFormat),
-    })
+    // new DailyRotateFile({
+    //   filename: './logs/app-%DATE%.log',
+    //   datePattern: 'DD-MM-YYYY',
+    //   zippedArchive: true,
+    //   maxSize: '100m',
+    //   maxFiles: '7d',
+    //   format: format.combine(logFormat),
+    // })
 
   ],
   exitOnError: false
