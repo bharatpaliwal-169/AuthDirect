@@ -1,5 +1,6 @@
 # AuthDirect
 
+package added : express, body-parser , nodemon , cors , dotenv , mongoose .
 ## v1
 
 Implement function based bare basic auth with 3 functions:
@@ -22,7 +23,14 @@ REf : https://stackoverflow.com/questions/56090851/winston-logging-object
 
 then implement it everywhere
 
-## Tasks pending....
-1) To log it into log files.
-2) To rotate the logs.
+## Tasks pending.... [DONE]
+1) To log it into log files. -> done 
+2) To rotate the logs. -> done 
+## V1 build is done.
+
+# V2 
+
+### Development
+
+package added : validator , express -rate limiter , jwt , cookie-parser .
 

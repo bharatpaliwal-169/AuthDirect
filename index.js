@@ -56,7 +56,7 @@ if (cluster.isPrimary) {
   //now we will use logger mostly.
 
   //authentication v1
-  app.use('/api',v1routes);
+  app.use('/api/v1/auth',v1routes);
   
   
   app.get('/',(req, res) => {
