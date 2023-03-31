@@ -34,3 +34,7 @@ then implement it everywhere
 
 package added : validator , express -rate limiter , jwt , cookie-parser .
 
+#### Email Service
+
+https://medium.com/@bluedesk09/sending-email-with-zoho-nodejs-nodemailer-62de7fffc8ac#:~:text=Note%20that%20we%20are%20using,are%20using%20a%20SSL%20connection.
+
