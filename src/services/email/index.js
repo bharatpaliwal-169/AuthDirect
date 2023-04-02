@@ -1,19 +1,21 @@
 import nodemailer from 'nodemailer';
 import logger from '../Logger/index.js';
 import dotenv from 'dotenv';
-dotenv.config()
 
-export const sendEmail = (reciptents,subject,type,TOKEN) =>{
+import verifyEmail from './templates/emailVerify.js'
+
+dotenv.config()
+const sendEmail = (reciptent,subject,type,TOKEN) =>{
   const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     secure: process.env.EMAIL_SECURE,
     port: process.env.EMAIL_PORT,
     auth: {
       user: process.env.EMAIL_ID,
-      pass: process.env.EMAIL_PASS,
+      pass: process.env.EMAIL_PSWD,
     },
   });
-  const body = "";
+  var body = "";
   switch (type) {
     case "FORGOTPASSWORD":
       body = `<h1>Forgot password !!</h1>
@@ -24,33 +26,23 @@ export const sendEmail = (reciptents,subject,type,TOKEN) =>{
       break;
     
     case "EMAIL_VERIFICATION":
-      body = `
-        <h1> Welcome to AuthDirect </h1>
-        <p>Saftey as a service</p>
-        <br/>
-        <h1>Verify your Email</h1>
-        <p> Please click on this link to activate your account.</p>
-        <h6>
-          <a href="http://localhost:3000/auth/email/veriication/${TOKEN}">Verify</a>
-        </h6>
-      `;
+      body = verifyEmail(TOKEN);
       break;
-  
     default:
       break;
   }
   const mailOptions = {
     from: process.env.EMAIL_ID, // sender address
-    to: reciptents,
+    to: reciptent,
     subject: subject, // Subject line
     html: body, // plain text body
   };
   try {
     transporter.sendMail(mailOptions,function(err,info){
       if(err){
-        logger.error(err);
+        logger.error(`[email.js] ERROR: ${err.message}`);
       }else{
-        logger.info(info);
+        logger.info(`[email.js] ${JSON.stringify(info)}`);
       }
     });
     return "OK";
@@ -59,3 +51,5 @@ export const sendEmail = (reciptents,subject,type,TOKEN) =>{
     return "ERROR"
   }
 };
+
+export default sendEmail;

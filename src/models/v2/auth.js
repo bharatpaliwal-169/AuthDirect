@@ -11,11 +11,14 @@ const authSchema = mongoose.Schema({
   inValidPasswordCount : {type : Number, default: 0},  
   role : {type : String , enum: ["customer", "admin" , "mod"] , default: "customer"},
   userStatus : {type:String , enum: ["Active", "Blocked"] , default: "Active"},
-  presence : {type: String , enum: ["online", "offline"], default: "online"},
   lastLoggedIn : {type : String , default : ""},
+  token : {type: String,default : ""},
   //on signup
   userCreatedOn : {type:String , default : ""},
-  isToken : {type : Boolean , default: false}, //at logout false at login true
+  
+  //Frontend Features
+  // isToken : {type : Boolean , default: false}, //at logout false at login true
+  // presence : {type: String , enum: ["online", "offline"], default: "online"},
 },{
   timestamps : true
 });

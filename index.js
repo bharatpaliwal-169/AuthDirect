@@ -9,8 +9,9 @@ import os from 'os';
 
 
 import logger from './src/services/Logger/index.js'
-import v1routes from './src/routes/v1/auth.js'
-
+import v1Routes from './src/routes/v1/auth.js'
+import v2Routes from './src/routes/v2/auth.js'
+// import testRoutes from './src/routes/test/index.js'
 
 //base
 const app = express();
@@ -41,23 +42,14 @@ if (cluster.isPrimary) {
 
   //DB_CONNECT
   mongoose.connect(DB_SERVER_URL)
-    .then(() => app.listen(PORT, () => logger.info(`Server Running on Port: http://localhost:${PORT}`)))
+    .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
     .catch((error) => logger.error(`${error} did not connect`));
   
-  //logger
-  // app.use(expressWinston.logger({
-  //   winstonInstance : logger,
-  //   meta : true,
-  //   msg: 'HTTP {{req.method}} {{req.url}} {{req.body}}',
-  //   expressFormat:true,
-  //   colorize:true
-  // }));
-
-  //now we will use logger mostly.
 
   //authentication v1
-  app.use('/api/v1/auth',v1routes);
-  
+  app.use('/api/v1/auth',v1Routes);
+  app.use('/api/v2/auth',v2Routes);
+  // app.use('/test',testRoutes);
   
   app.get('/',(req, res) => {
     res.send("App is UP n RUNNING");
