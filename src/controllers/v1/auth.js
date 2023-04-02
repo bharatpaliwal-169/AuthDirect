@@ -73,7 +73,7 @@ export const forgotPassword = async(req,res) => {
       return res.status(404).send(`Cannot update this user !`);
     } 
     const result = await authModel.findByIdAndUpdate(isExistingUser._id,updateUser,{new:true});
-    logger.info(`User updated! ${JSON.stringify(updateUser)}`);
+    logger.info(`User updated! ${JSON.stringify(result)}`);
     res.status(200).json({updateUser,message:"user updated successfully"});
 
   } catch (error) {
