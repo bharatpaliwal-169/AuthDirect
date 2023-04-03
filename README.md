@@ -53,3 +53,23 @@ https://medium.com/@bluedesk09/sending-email-with-zoho-nodejs-nodemailer-62de7ff
 
 
 # v2 : forgotpassword testing .... underprogress
+
+Done with forgotPassword functionality.
+
+# BUG ? ISSUE
+
+<p> 
+This is to be observed that, when handling objects in controllers then we need to take care of using 
+```
+newUSer = {...user,prop:newValues} <- this dosent works for some reason
+we need to use $set:{prop:newValue} instead
+```
+else what can be done is to fetch object from DB then destruct it and rebuild as construct then send as const object
+```
+const obj = {all , props , here};
+const new = {prop : newval , here};
+db.fidu(new);
+```
+
+this took almost a day to get figure out, JS hell! 💀
+</p>

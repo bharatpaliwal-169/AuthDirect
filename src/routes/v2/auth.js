@@ -12,9 +12,9 @@ const router = express.Router();
 // router.post('/changePassword',logMid,login);
 
 router.post('/signup',logMid,validator,signup);
-router.get('/forgotpassword',logMid,forgotPassword);
-
 router.get('/verification',logMid,verifyUser);
-router.delete('/deleteaccount',logMid,deleteAccount);
 router.post('/forgot/request',logMid,forgotPswdReq);
+router.get('/forgotpassword',logMid,forgotPassword);
+router.delete('/deleteaccount',logMid,deleteAccount);
+
 export default router;
