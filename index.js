@@ -5,12 +5,14 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cluster from 'cluster';
 import os from 'os';
+import compression from 'compression';
 // import expressWinston from 'express-winston';
 
+import limiter from './src/middlewares/rateLimiter.js';
+import logger from './src/services/Logger/index.js';
+import v1Routes from './src/routes/v1/auth.js';
+import v2Routes from './src/routes/v2/auth.js';
 
-import logger from './src/services/Logger/index.js'
-import v1Routes from './src/routes/v1/auth.js'
-import v2Routes from './src/routes/v2/auth.js'
 // import testRoutes from './src/routes/test/index.js'
 
 //base
@@ -18,8 +20,10 @@ const app = express();
 app.use(bodyParser.json({limit: "50mb",extended : true}));
 app.use(bodyParser.urlencoded({limit: "50mb",extended : true}));
 app.use(cors());
-dotenv.config();
+app.use(compression());
+app.use(limiter);
 
+dotenv.config();
 //DB
 const PORT = process.env.MY_PORT|| process.env.PORT;
 const DB_SERVER_URL = process.env.DB_URL;

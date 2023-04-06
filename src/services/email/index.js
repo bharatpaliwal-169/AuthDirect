@@ -3,6 +3,8 @@ import logger from '../Logger/index.js';
 import dotenv from 'dotenv';
 
 import verifyEmail from './templates/emailVerify.js'
+import forgotPasswordBody from './templates/forgot.js';
+import changePswd from './templates/changePswd.js'
 
 dotenv.config()
 const sendEmail = (reciptent,subject,type,TOKEN) =>{
@@ -18,15 +20,14 @@ const sendEmail = (reciptent,subject,type,TOKEN) =>{
   var body = "";
   switch (type) {
     case "FORGOTPASSWORD":
-      body = `<h1>Forgot password !!</h1>
-      <p> click <a href="${TOKEN}">here</a>
-      <p> <b> You are welcome to Memofeed </b> </p>
-      <h6>Developed by Bharat Paliwal</h6>
-      `;
+      body = forgotPasswordBody(TOKEN);
       break;
     
-    case "EMAIL_VERIFICATION":
+    case "EMAILVERIFICATION":
       body = verifyEmail(TOKEN);
+      break;
+    case "CHANGEPASSWORD":
+      body = changePswd(TOKEN);
       break;
     default:
       break;

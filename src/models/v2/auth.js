@@ -9,16 +9,19 @@ const authSchema = mongoose.Schema({
   isVerified : {type : Boolean , default : false},
   loginCount : {type : Number , default: 0},
   inValidPasswordCount : {type : Number, default: 0},  
+  forgotPasswordCount : {type : Number,default: 0},
+  changePasswordCount : {type : Number,default: 0},
   role : {type : String , enum: ["customer", "admin" , "mod"] , default: "customer"},
   userStatus : {type:String , enum: ["Active", "Blocked"] , default: "Active"},
   lastLoggedIn : {type : String , default : ""},
+  lastpasswordChanged : {type : String , default : ""},
   token : {type: String,default : ""},
   //on signup
-  userCreatedOn : {type:String , default : ""},
   
   //Frontend Features
   // isToken : {type : Boolean , default: false}, //at logout false at login true
-  // presence : {type: String , enum: ["online", "offline"], default: "online"},
+  // userCreatedOn : {type:String , default : ""},
+  // presence : {type: String , enum: ["online", "offline"], default: "offline"},
 },{
   timestamps : true
 });
