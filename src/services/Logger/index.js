@@ -20,24 +20,24 @@ const logger = winston.createLogger({
     }),
 
     //dev-prod
-    new winston.transports.File({
-      //path to log folder from root
-      filename: './logs/server.log',
-      format: format.combine(
-        // format.json()
-        logFormat
-      )
-    }),
+    // new winston.transports.File({
+    //   //path to log folder from root
+    //   filename: './logs/server.log',
+    //   format: format.combine(
+    //     // format.json()
+    //     logFormat
+    //   )
+    // }),
 
-    //prod
-    // new DailyRotateFile({
-    //   filename: './logs/app-%DATE%.log',
-    //   datePattern: 'DD-MM-YYYY',
-    //   zippedArchive: true,
-    //   maxSize: '100m',
-    //   maxFiles: '7d',
-    //   format: format.combine(logFormat),
-    // })
+    // prod
+    new DailyRotateFile({
+      filename: './logs/app-%DATE%.log',
+      datePattern: 'DD-MM-YYYY',
+      zippedArchive: true,
+      maxSize: '500m',
+      maxFiles: '3d',
+      format: format.combine(logFormat),
+    })
 
   ],
   exitOnError: false
