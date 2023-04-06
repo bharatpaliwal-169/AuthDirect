@@ -1,8 +1,8 @@
-import RateLimit from 'express-rate-limiter';
+import rateLimit from 'express-rate-limit';
 
-const ApiRateLimiter = RateLimit({
-  windowMs : 5 * 60 * 1000, //5 minutes
-  max : 10,
+const ApiRateLimiter = rateLimit({
+  windowMs : 60 * 1000, //1 minute
+  max : 100,
   message : "Too many attempts"
 }) 
 

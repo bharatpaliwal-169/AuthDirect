@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 
 import verifyEmail from './templates/emailVerify.js'
 import forgotPasswordBody from './templates/forgot.js';
+import changePswd from './templates/changePswd.js'
 
 dotenv.config()
 const sendEmail = (reciptent,subject,type,TOKEN) =>{
@@ -22,8 +23,11 @@ const sendEmail = (reciptent,subject,type,TOKEN) =>{
       body = forgotPasswordBody(TOKEN);
       break;
     
-    case "EMAIL_VERIFICATION":
+    case "EMAILVERIFICATION":
       body = verifyEmail(TOKEN);
+      break;
+    case "CHANGEPASSWORD":
+      body = changePswd(TOKEN);
       break;
     default:
       break;

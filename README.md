@@ -73,3 +73,47 @@ db.fidu(new);
 
 this took almost a day to get figure out, JS hell! 💀
 </p>
+
+### Req/res compression 
+
+```
+app.use(compression({
+  level: 6, // set the compression level to 6
+  threshold: 1024, // compress responses larger than 1024 bytes
+  filter: (req, res) => {
+    if (req.headers['content-type'] === 'application/json') {
+      // exclude JSON responses from compression
+      return false;
+    }
+    return true;
+  }
+}));
+
+```
+### HTTP Status:
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+```
+
+200 : ok
+201 : created
+202 : accepted
+
+400 : bad request
+401 : unauthorized
+403 : forbidden
+404 : not found
+405 : method not allowed
+406 : not accepetable   
+408 : request timeout
+429 : too many requests
+
+
+500 : internal server error
+502 : bad gateway
+503 : serviced unavailable
+508 : inf loops 
+
+v3 will have otp based
+v3 will have custom response fields
