@@ -4,7 +4,7 @@ const ApiRateLimiter = rateLimit({
   windowMs : 60 * 1000, //1 minute
   max : 100,
   standardHeaders: true,
-  legacyHeaders:false,
+  legacyHeaders: false,
   message : "Too many attempts"
 }) 
 

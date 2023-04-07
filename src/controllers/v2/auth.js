@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+
 import authModel from '../../models/v2/auth.js';
 import logger from '../../services/Logger/index.js';
 import sendEmail from '../../services/email/index.js';
@@ -25,7 +26,9 @@ export const login = async(req,res) => {
       logger.error(`[v2.controller.js] invalid id --> ${id}`);
       return res.status(500).json({message:"Something went wrong"});
     }
+
     const isPasswordCorrect = await bcrypt.compare(password,user.password);
+
     if(!isPasswordCorrect){
       logger.warn(`invalid password recieved!`);
       const invpswdCount = user.inValidPasswordCount + 1;
@@ -56,7 +59,7 @@ export const login = async(req,res) => {
     res.status(200).json({result,token,message:"user logged in successfully"});
 
   } catch (error) {
-    logger.error(`[login] ${JSON.stringify(error.message)}`);
+    logger.error(`[login] ${error.message}`);
     res.status(500).json({message: "Something went wrong, Please try again later"});
   }
   logger.info("login method finished...");
@@ -148,7 +151,10 @@ export const changePassword = async(req,res) => {
 
     const id = user._id;
     const newCPC = user.changePasswordCount + 1;
-    const hashPassword = await bcrypt.hash(password,15);
+    
+    const salt =  await bcrypt.genSalt(10);
+    const hashPassword = bcrypt.hashSync(password,salt,12);
+    
     const lastChangeTime = `${new Date().toDateString()} ${new Date().toTimeString()}`;
     const result = await authModel.findByIdAndUpdate(id,{user,$set:{password:hashPassword,changePasswordCount:newCPC,inValidPasswordCount:0,lastPasswordChanged:lastChangeTime}},{new:true});
     logger.info(`[changePassword] user updates : changePasswordCount : ${JSON.stringify(newCPC)} at ${lastChangeTime}`);
@@ -178,7 +184,9 @@ export const signup = async(req,res) => {
       return res.status(400).json({message:"A user with this email id already exists."});
     }
 
-    const hashPassword = await bcrypt.hash(password,15);
+    const salt =  await bcrypt.genSalt(10);
+    const hashPassword = bcrypt.hashSync(password,salt,12);
+
     const token = jwt.sign({email,hashPassword},process.env.SECRET,{expiresIn: "1h"});
     logger.info(`token generated --> ${token}`)
     
