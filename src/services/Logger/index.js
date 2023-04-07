@@ -1,5 +1,5 @@
 import winston, { format } from "winston";
-import DailyRotateFile  from "winston-daily-rotate-file";
+// import DailyRotateFile  from "winston-daily-rotate-file";
 
 const logFormat = winston.format.printf(info => `${info.timestamp}: [${info.level}] ${info.message} `);
 const logger = winston.createLogger({
@@ -30,14 +30,14 @@ const logger = winston.createLogger({
     // }),
 
     // prod
-    new DailyRotateFile({
-      filename: './logs/app-%DATE%.log',
-      datePattern: 'DD-MM-YYYY',
-      zippedArchive: true,
-      maxSize: '500m',
-      maxFiles: '3d',
-      format: format.combine(logFormat),
-    })
+    // new DailyRotateFile({
+    //   filename: './logs/app-%DATE%.log',
+    //   datePattern: 'DD-MM-YYYY',
+    //   zippedArchive: true,
+    //   maxSize: '500m',
+    //   maxFiles: '3d',
+    //   format: format.combine(logFormat),
+    // })
 
   ],
   exitOnError: false
