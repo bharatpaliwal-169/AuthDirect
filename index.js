@@ -9,7 +9,7 @@ import compression from 'compression';
 import helmet from 'helmet';
 // import expressWinston from 'express-winston';
 
-import limiter from './src/middlewares/rateLimiter.js';
+// import limiter from './src/middlewares/rateLimiter.js';
 import logger from './src/services/Logger/index.js';
 import v1Routes from './src/routes/v1/auth.js';
 import v2Routes from './src/routes/v2/auth.js';
@@ -23,7 +23,7 @@ app.use(bodyParser.json({limit: "50mb",extended : true}));
 app.use(bodyParser.urlencoded({limit: "50mb",extended : true}));
 app.use(cors());
 app.use(compression());
-app.use(limiter);
+// app.use(limiter);
 
 dotenv.config();
 //DB

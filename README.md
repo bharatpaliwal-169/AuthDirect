@@ -117,3 +117,42 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
 v3 will have otp based
 v3 will have custom response fields
+
+
+# DOCKER
+
+create and write 2 files
+```
+Dockerfile
+
+.dockerignore
+
+```
+
+in cmd run 
+
+```
+docker build -t <name_your_image> . // "." is used for current directory
+```
+
+To see all the images that you have
+```
+docker images
+```
+
+To create a container run command:
+```
+docker run --name <continer_name> -d -p <listen_port>:<your_port> <name_of_image>
+```
+
+<img width="539" alt="image" src="https://user-images.githubusercontent.com/56474196/230551580-7ab0a40b-cf5c-4be8-a4dc-544a0f625c3e.png">
+
+START/STOP
+
+```
+docker start <container_name>
+docker stop <container_name>
+
+```
+
+helpful : https://github.com/KaranJagtiani/MERN-Docker-Production-Boilerplate
