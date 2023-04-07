@@ -59,7 +59,7 @@ export const login = async(req,res) => {
     res.status(200).json({result,token,message:"user logged in successfully"});
 
   } catch (error) {
-    logger.error(`[login] ${JSON.stringify(error.message)}`);
+    logger.error(`[login] ${error.message}`);
     res.status(500).json({message: "Something went wrong, Please try again later"});
   }
   logger.info("login method finished...");
