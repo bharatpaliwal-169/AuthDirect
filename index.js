@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import cluster from 'cluster';
 import os from 'os';
 import compression from 'compression';
+import helmet from 'helmet';
 // import expressWinston from 'express-winston';
 
 import limiter from './src/middlewares/rateLimiter.js';
@@ -17,6 +18,7 @@ import v2Routes from './src/routes/v2/auth.js';
 
 //base
 const app = express();
+app.use(helmet());
 app.use(bodyParser.json({limit: "50mb",extended : true}));
 app.use(bodyParser.urlencoded({limit: "50mb",extended : true}));
 app.use(cors());
