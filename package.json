@@ -1,11 +1,10 @@
 {
   "name": "authdireact",
   "version": "1.0.0",
-  "description": "A plateform with all kind of auth solutions",
+  "description": "A plateform with best of auth solutions",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
   "keywords": [
