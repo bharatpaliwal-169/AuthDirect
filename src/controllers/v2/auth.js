@@ -112,7 +112,7 @@ export const changePasswordReq = async(req,res) => {
     const result = await authModel.findByIdAndUpdate(user._id,{user,$set:{token:token,changePasswordCount:changePswdCount,inValidPasswordCount:0}},{new :true});
 
     res.status(200).json({message:"sent a email with your request"});
-    sendEmail(user.email,"Change Password","CHANGEPASSWORD",token);
+    sendEmail(user.email,"Change Password","CHANGEPASSWORD",token,user.username);
 
   } catch (error) {
     logger.error(`[changePasswordReq]:  ${JSON.stringify(error.message)}`);
@@ -196,7 +196,7 @@ export const signup = async(req,res) => {
     res.status(201).json({result,token,message:"user created successfully"});
   
     //sendEmailverification
-    sendEmail(email,"Email Verification","EMAILVERIFICATION",token);
+    sendEmail(email,"Email Verification","EMAILVERIFICATION",token,username);
   
   } catch (error) {
     logger.error(`Sign up method : ${JSON.stringify(error.message)}`);
