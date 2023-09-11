@@ -118,6 +118,31 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 v3 will have otp based
 v3 will have custom response fields
 
+## Brand Colors
+
+
+```
+#f9f9f7
+
+#302b70
+
+#484690
+
+#6061b0
+
+#787cd1
+
+```
+
+## NOTE
+First thing is you cannot link external CSS from a CDN or anyplace.
+But you can Insert images from outside
+you have to write you CSS rules inline html.
+And you cannot use divisions(divs)in you email template html code.
+You have to make the template's structure with html tables.
+
+
+https://play.tailwindcss.com/gz7pDEOSVa
 
 ## Testing
 Unit testing : single piece of code is working fine
