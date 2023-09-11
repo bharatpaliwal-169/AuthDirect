@@ -7,7 +7,7 @@ import forgotPasswordBody from './templates/forgot.js';
 import changePswd from './templates/changePswd.js'
 
 dotenv.config()
-const sendEmail = (reciptent,subject,type,TOKEN) =>{
+const sendEmail = (reciptent,subject,type,TOKEN,user) =>{
   const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     secure: process.env.EMAIL_SECURE,
@@ -24,10 +24,10 @@ const sendEmail = (reciptent,subject,type,TOKEN) =>{
       break;
     
     case "EMAILVERIFICATION":
-      body = verifyEmail(TOKEN);
+      body = verifyEmail(TOKEN,user);
       break;
     case "CHANGEPASSWORD":
-      body = changePswd(TOKEN);
+      body = changePswd(TOKEN,user);
       break;
     default:
       break;
