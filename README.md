@@ -1,17 +1,18 @@
 # AuthDirect
 
 package added : express, body-parser , nodemon , cors , dotenv , mongoose .
-## v1
-
+### v1
 Implement function based bare basic auth with 3 functions:
 
 ```
-login() , signup() , forgotPassword()
+login();
+signup();
+forgotPassword();
 ```
 
 ### Looger : winston
 
-<b> NOTE </b> : I have an understanding that adding a logger on a small scale project is like putting sword in needle battles. But here the purpose is to follow production grade tools and pratices. Aim is to learn about how to build business class projects.
+<b> NOTE </b> : There is understanding that adding a logger on a small scale project is like putting sword in needle battles. But here the purpose is to follow production grade tools and pratices. Aim is to learn about how to build business class projects.
 
 ```
 npm install winston
@@ -28,35 +29,28 @@ an example of using logger in express with express-winston
  }));
  
 ```
-
-
 Then create a custom logger
-
-REf : https://stackoverflow.com/questions/56090851/winston-logging-object
-
+Ref : https://stackoverflow.com/questions/56090851/winston-logging-object
 then implement it everywhere
 
-## Tasks pending.... [DONE]
+#### Tasks pending.... [DONE]
 1) To log it into log files. -> done 
 2) To rotate the logs. -> done 
-## V1 build is done.
+### V1 build is done.
 
-# V2 
+## V2 : [start] 
 
 ### Development
-
 package added : validator , express -rate limiter , jwt , cookie-parser .
 
 #### Email Service
-
 https://medium.com/@bluedesk09/sending-email-with-zoho-nodejs-nodemailer-62de7fffc8ac#:~:text=Note%20that%20we%20are%20using,are%20using%20a%20SSL%20connection.
 
 
-# v2 : forgotpassword testing .... underprogress
-
+### v2 : forgotpassword testing .... underprogress
 Done with forgotPassword functionality.
 
-# BUG ? ISSUE
+#### BUG ? ISSUE
 
 <p> 
 This is to be observed that, when handling objects in controllers then we need to take care of using 
@@ -91,11 +85,9 @@ app.use(compression({
 
 ```
 ### HTTP Status:
-
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+Ref: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
 ```
-
 200 : ok
 201 : created
 202 : accepted
@@ -114,12 +106,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 502 : bad gateway
 503 : serviced unavailable
 508 : inf loops 
-
-v3 will have otp based
-v3 will have custom response fields
+```
 
 ## Brand Colors
-
 
 ```
 #f9f9f7
@@ -131,20 +120,21 @@ v3 will have custom response fields
 #6061b0
 
 #787cd1
-
 ```
 
-## NOTE
+
+#### NOTE : Email Templates
+
 First thing is you cannot link external CSS from a CDN or anyplace.
 But you can Insert images from outside
 you have to write you CSS rules inline html.
 And you cannot use divisions(divs)in you email template html code.
 You have to make the template's structure with html tables.
 
-
 https://play.tailwindcss.com/gz7pDEOSVa
 
-## Testing
+#### Testing
+```
 Unit testing : single piece of code is working fine
 
 Integration testing : diff units combine together working fine.
@@ -156,11 +146,11 @@ peformance/load testing : max load management cap of project
 security testing : unwanted access , penTEST secured 
 
 usablity testing : all things working smooth or not.
+```
 
 
--------------------------------------------------------------------------------------------------------
 
-API Business Model
-
+## API Business Model
+------------------------------------------------------------------------------------------
 user -> subscribe -> {version,planlevel,timeperiod} -> params.token gen param.key gen
 -> custom head ++ host,key -> backend : {calc(params) + rateLIMIT custom}

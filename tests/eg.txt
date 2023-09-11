@@ -1,8 +1,0 @@
-// bare basic example 
-// const sum = (a,b) => {
-//   return a+b;
-// }
-
-// test('sum func should return number', () => { 
-//   expect(sum(1,2)).toBe(3);
-// })
