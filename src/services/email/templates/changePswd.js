@@ -27,7 +27,7 @@ const changePswd = (TOKEN,user) => {
           <p>Click on the following button to change your password.</p>
           
           <div style="margin-bottom: 1rem; margin-top: 0.75rem; align-items: center; justify-content: center; text-align: center;">
-            <a href="${process.env.DEV_URL}/api/v2/auth/changepassword/?token=${TOKEN}">
+            <a href="${process.env.PROD_URL}/api/v2/auth/changepassword/?token=${TOKEN}">
               <button style="border-radius: 0.75rem; background-color: #a5b4fc; padding: 12px 24px 12px 24px; font-weight: 700; color: #1e1b4b; border:none; cursor:pointer;">
                 Change Password
               </button>
