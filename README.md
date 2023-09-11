@@ -124,13 +124,14 @@ Ref: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
 
 #### NOTE : Email Templates
+
 First thing is you cannot link external CSS from a CDN or anyplace.
 But you can Insert images from outside
 you have to write you CSS rules inline html.
 And you cannot use divisions(divs)in you email template html code.
 You have to make the template's structure with html tables.
+
 https://play.tailwindcss.com/gz7pDEOSVa
-=========
 
 #### Testing
 ```
@@ -153,4 +154,3 @@ usablity testing : all things working smooth or not.
 ------------------------------------------------------------------------------------------
 user -> subscribe -> {version,planlevel,timeperiod} -> params.token gen param.key gen
 -> custom head ++ host,key -> backend : {calc(params) + rateLIMIT custom}
->>>>>>>>> Temporary merge branch 2
