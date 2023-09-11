@@ -14,7 +14,6 @@ import logger from './src/services/Logger/index.js';
 import v1Routes from './src/routes/v1/auth.js';
 import v2Routes from './src/routes/v2/auth.js';
 
-// import testRoutes from './src/routes/test/index.js'
 
 //base
 const app = express();
@@ -55,7 +54,7 @@ if (cluster.isPrimary) {
   //authentication v1
   app.use('/api/v1/auth',v1Routes);
   app.use('/api/v2/auth',v2Routes);
-  // app.use('/test',testRoutes);
+
   
   app.get('/',(req, res) => {
     res.send("App is UP n RUNNING");
