@@ -61,3 +61,5 @@ if (cluster.isPrimary) {
     res.send("App is UP n RUNNING");
   });
 }
+
+export default app;

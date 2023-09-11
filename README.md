@@ -156,3 +156,25 @@ docker stop <container_name>
 ```
 
 helpful : https://github.com/KaranJagtiani/MERN-Docker-Production-Boilerplate
+
+
+## Testing
+Unit testing : single piece of code is working fine
+
+Integration testing : diff units combine together working fine.
+
+end-to-end testing : to check all cases
+
+peformance/load testing : max load management cap of project
+
+security testing : unwanted access , penTEST secured 
+
+usablity testing : all things working smooth or not.
+
+
+-------------------------------------------------------------------------------------------------------
+
+API Business Model
+
+user -> subscribe -> {version,planlevel,timeperiod} -> params.token gen param.key gen
+-> custom head ++ host,key -> backend : {calc(params) + rateLIMIT custom}
